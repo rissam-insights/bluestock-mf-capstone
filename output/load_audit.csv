@@ -1,0 +1,12 @@
+table_name,status
+companies,LOADED
+profitandloss,LOADED
+balancesheet,LOADED
+cashflow,LOADED
+analysis,LOADED
+documents,LOADED
+prosandcons,LOADED
+sectors,LOADED
+stock_prices,LOADED
+financial_ratios,LOADED
+peer_groups,LOADED

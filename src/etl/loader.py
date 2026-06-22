@@ -1,10 +1,21 @@
-import pandas as pd
+import sqlite3
+from pathlib import Path
 
-def load_excel(file_path, header_row=1):
-    """
-    Load Excel file and return DataFrame
-    """
+DB_NAME = "nifty100.db"
 
-    df = pd.read_excel(file_path, header=header_row)
+conn = sqlite3.connect(DB_NAME)
 
-    return df
+cursor = conn.cursor()
+
+schema_path = Path("db/schema.sql")
+
+with open(schema_path, "r", encoding="utf-8") as f:
+    schema = f.read()
+
+cursor.executescript(schema)
+
+conn.commit()
+
+print("Database schema created successfully!")
+
+conn.close()
